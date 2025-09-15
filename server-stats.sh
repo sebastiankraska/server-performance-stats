@@ -15,6 +15,8 @@ echo "Memory:" \
 
 ### DISK ###
 
+df -h --local | grep ".*/$" | awk '{print $5}' # get usage of root partition only
+
 ### TOP 5 BY CPU USAGE ###
 
 ### TOP 5 BY MEMORY USAGE ###
