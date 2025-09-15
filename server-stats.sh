@@ -19,4 +19,8 @@ df -h --local | grep ".*/$" | awk '{print $5}' # get usage of root partition onl
 
 ### TOP 5 BY CPU USAGE ###
 
+ps -eo comm,%cpu --sort=-%cpu | head -6
+
 ### TOP 5 BY MEMORY USAGE ###
+
+ps -eo comm,rss --sort=-%mem --no-headers | head -5 | awk '{printf "%-9s\t%8.1f MB\n", $1, $2/1024}'
