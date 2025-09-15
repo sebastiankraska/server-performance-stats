@@ -7,6 +7,7 @@ MemTotal=$(echo "$meminfo" | grep MemTotal | awk '{print $2}')
 MemFree=$(echo "$meminfo" | grep MemFree | awk '{print $2}')
 MemAvailable=$(echo "$meminfo" | grep MemAvailable | awk '{print $2}')
 
-echo $MemTotal
-echo $MemFree
-echo $MemAvailable
+echo "Memory:" \
+    "$((MemFree * 100 / MemTotal))% free, " \
+    "$((MemAvailable * 100 / MemTotal))% available"
+
